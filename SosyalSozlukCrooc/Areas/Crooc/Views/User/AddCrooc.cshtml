@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "AddCrooc";
+    Layout = "~/Areas/Crooc/Views/Shared/_CroocMaster.cshtml";
+}
+
+<script src="~/Areas/Crooc/Content/scripts/User/AddCrooc.js"></script>
+
+<div class="col-md-9">
+    <div class="page-content ask-question">
+        <div class="boxedtitle page-title">
+            <h2>Crooc Oluştur</h2>
+        </div>
+        <div class="form-style form-style-3" id="question-submit">
+            <form>
+                <div class="form-inputs clearfix">
+                    <p><label class="required">Crooc Başlığı<span>*</span></label> <input id="question-title" type="text"> <span class="form-description">Daha önceden oluşturulmuş Croocler bu başlığa göre yansıtılacaktır .</span></p>
+                    <p>
+                        <label class="required">Kategori<span>*</span></label> <span class="styled-select">
+                            <select id="CroocCategory">
+                                <option value="">
+                                    Kategori Seçiniz
+                                </option>
+                                <option value="1">
+                                    Icerik
+                                </option>
+                                <option value="2">
+                                    Soru
+                                </option>
+                                <option value="3">
+                                    Video
+                                </option>
+                                <option value="4">
+                                    Anket
+                                </option>
+                            </select>
+                        </span> <span class="form-description">Crooc kateogirisi seçiniz.</span>
+                    </p>
+                   
+                    <p class="question_poll_p"><label for="question_poll">Anket</label> <input id="question_poll" onchange="PolCheck()" name="question_poll" type="checkbox" value="1"> <span class="question_poll">Bu Crooc anket mi ?</span> <span class="poll-description">Bu bir anketse lütfen işaretleyiniz.</span></p>
+                    <div class="clearfix"></div>
+                    <div class="poll_options">
+                        <p class="form-submit add_poll"><button class="button color small submit" id="add_poll" type="button"><i class="icon-plus"></i>Seçenek Ekle</button></p>
+                        <ul id="question_poll_item">
+                            <li id="poll_li_1">
+                                <div class="poll-li">
+                                    <p><input class="ask" id="ask[1][title]" name="ask[1][title]" type="text" value=""></p><input id="ask[1][value]" name="ask[1][value]" type="hidden" value=""> <input id="ask[1][id]" name="ask[1][id]" type="hidden" value="1">
+                                    <div class="del-poll-li">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <div class="move-poll-li">
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <script>
+                            var nextli = 2;
+                        </script>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+                <div id="form-textarea">
+                    <p>
+                        <label class="required">İçerik<span>*</span></label>
+                        <textarea aria-required="true" cols="58" id="question-details" rows="8"></textarea> <span class="form-description">İçerik kısmı.</span>
+                    </p>
+                </div>
+                <p class="form-submit">
+                    <input class="button color small submit" id="publish-question" onclick="AddCrooc()" value="Crooc'u Yayınla">
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

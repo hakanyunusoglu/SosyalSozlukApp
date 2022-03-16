@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Crooc/Views/Shared/_CroocMaster.cshtml";
+}
+@using SosyalSozlukCrooc.Models.DTO
+@{
+    DTOCrooc ContentOperations = new DTOCrooc();
+}
+
+
+@using SosyalSozlukCrooc.Models.Attributes.Enumerations;
+@model SosyalSozlukCrooc.Models.ViewModels.HomeView
+
+<script src="~/Areas/Crooc/Content/scripts/Home/Home.js"></script>
+<div class="col-md-9">
+    <div class="tabs-warp question-tab">
+        <ul class="tabs">
+            <li class="tab">
+                <a class="current" href="index.htm#">İçerikler</a>
+            </li>
+            <li class="tab">
+                <a href="index.htm#">Sorular</a>
+            </li>
+            <li class="tab">
+                <a href="index.htm#">Videolar</a>
+            </li>
+            <li class="tab">
+                <a href="index.htm#">Anketler</a>
+            </li>
+        </ul>
+        <div class="tab-inner-warp">
+            <div class="tab-inner">
+
+                @foreach (SosyalSozlukCrooc.Models.Entity.Crooc item in Model.Croocs_icerik)
+                {
+                    <article class="question question-type-normal">
+                        <h2><a href="@Url.Action("Detail","Home",new {@id=item.ID })">@item.Title</a></h2><a class="question-report" href="index.htm#">Sikayet</a>
+                        <div class="question-type-main">
+                            <i class="fa fa-video-camera"></i>@CroocEnum.icerik
+                        </div>
+                        <div class="question-author">
+                            <a class="question-author-img tooltip-n" href="index.htm#"><span></span><img alt="" src="@item.User.ProfilePicture"></a>
+                        </div>
+                        <div class="question-inner">
+                            <div class="clearfix"></div>
+                            <p class="question-desc">@item.Content</p>
+                            <div class="question-details">
+                                <span class="question-favorite"><i class="fa fa-star"></i>@item.like</span>
+                            </div>
+                            <span class="question-category"><a href="index.htm#"><i class="fa fa-video-camera"></i>@CroocEnum.icerik</a></span>
+                            <span class="question-date"><i class="fa fa-clock-o"></i>@item.AddDate</span>
+                            <span class="question-comment"><a href="index.htm#"><i class="fa fa-comment"></i>@ContentOperations.GetCommentCount(item.ID) yorum</a></span>
+                            <span class="question-view"><i class="fa fa-eye"></i>@item.view görüntüleme</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </article>
+
+
+                }
+
+
+                <a class="load-questions" href="#"><i class="icon-refresh"></i>Daha Fazla Göster</a>
+            </div>
+        </div>
+        <div class="tab-inner-warp">
+            <div class="tab-inner">
+                @foreach (SosyalSozlukCrooc.Models.Entity.Crooc item in Model.Croocs_soru)
+                {
+                    <article class="question question-type-normal">
+                        <h2><a href="@Url.Action("Detail","Home",new {@id=item.ID })">@item.Title</a></h2><a class="question-report" href="index.htm#">Sikayet</a>
+                        <div class="question-type-main">
+                            <i class="fa fa-video-camera"></i>@CroocEnum.soru
+                        </div>
+                        <div class="question-author">
+                            <a class="question-author-img tooltip-n" href="index.htm#"><span></span><img alt="" src="@item.User.ProfilePicture"></a>
+                        </div>
+                        <div class="question-inner">
+                            <div class="clearfix"></div>
+                            <p class="question-desc">@item.Content</p>
+                            <div class="question-details">
+                                <span class="question-favorite"><i class="fa fa-star"></i>@item.like</span>
+                            </div>
+                            <span class="question-category"><a href="index.htm#"><i class="fa fa-video-camera"></i>@CroocEnum.icerik</a></span>
+                            <span class="question-date"><i class="fa fa-clock-o"></i>@item.AddDate</span>
+                            <span class="question-comment"><a href="index.htm#"><i class="fa fa-comment"></i>@ContentOperations.GetCommentCount(item.ID) yorum</a></span>
+                            <span class="question-view"><i class="fa fa-eye"></i>@item.view görüntüleme</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </article>
+                }
+                <a class="load-questions" href="index.htm#"><i class="icon-refresh"></i>Daha Fazla Göster</a>
+            </div>
+        </div>
+        <div class="tab-inner-warp">
+            <div class="tab-inner">
+                @foreach (SosyalSozlukCrooc.Models.Entity.Crooc item in Model.Croocs_video)
+                {
+                    <article class="question question-type-normal">
+                        <h2><a href="@Url.Action("Detail","Home",new {@id=item.ID })">@item.Title</a></h2><a class="question-report" href="index.htm#">Sikayet</a>
+                        <div class="question-type-main">
+                            <i class="fa fa-video-camera"></i>@CroocEnum.video
+                        </div>
+                        <div class="question-author">
+                            <a class="question-author-img tooltip-n" href="index.htm#"><span></span><img alt="" src="@item.User.ProfilePicture"></a>
+                        </div>
+                        <div class="question-inner">
+                            <div class="clearfix"></div>
+                            <p class="question-desc">@item.Content</p>
+                            <div class="question-details">
+                                <span class="question-favorite"><i class="fa fa-star"></i>@item.like</span>
+                            </div>
+                            <span class="question-category"><a href="index.htm#"><i class="fa fa-video-camera"></i>@CroocEnum.icerik</a></span>
+                            <span class="question-date"><i class="fa fa-clock-o"></i>@item.AddDate</span>
+                            <span class="question-comment"><a href="index.htm#"><i class="fa fa-comment"></i>@ContentOperations.GetCommentCount(item.ID) yorum</a></span>
+                            <span class="question-view"><i class="fa fa-eye"></i>@item.view görüntüleme</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </article>
+                }
+                <a class="load-questions" href="index.htm#"><i class="icon-refresh"></i>Daha Fazla Göster</a>
+            </div>
+        </div>
+        <div class="tab-inner-warp">
+            <div class="tab-inner">
+                @foreach (SosyalSozlukCrooc.Models.Entity.Crooc item in Model.Croocs_anket)
+                {
+                    <article class="question question-type-normal">
+                        <h2><a href="@Url.Action("Detail","Home",new {@id=item.ID })">@item.Title</a></h2><a class="question-report" href="index.htm#">Sikayet</a>
+                        <div class="question-type-main">
+                            <i class="fa fa-video-camera"></i>@CroocEnum.anket
+                        </div>
+                        <div class="question-author">
+                            <a class="question-author-img tooltip-n" href="index.htm#"><span></span><img alt="" src="@item.User.ProfilePicture"></a>
+                        </div>
+                        <div class="question-inner">
+                            <div class="clearfix"></div>
+                            <p class="question-desc">@item.Content</p>
+                            <div class="question-details">
+                                <span class="question-favorite"><i class="fa fa-star"></i>@item.like</span>
+                            </div>
+                            <span class="question-category"><a href="index.htm#"><i class="fa fa-video-camera"></i>@CroocEnum.icerik</a></span>
+                            <span class="question-date"><i class="fa fa-clock-o"></i>@item.AddDate</span>
+                            <span class="question-comment"><a href="index.htm#"><i class="fa fa-comment"></i>@ContentOperations.GetCommentCount(item.ID) yorum</a></span>
+                            <span class="question-view"><i class="fa fa-eye"></i>@item.view görüntüleme</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </article>
+                }
+                <a class="load-questions" href="index.htm#"><i class="icon-refresh"></i>Daha Fazla Göster</a>
+            </div>
+        </div>
+    </div>
+</div>

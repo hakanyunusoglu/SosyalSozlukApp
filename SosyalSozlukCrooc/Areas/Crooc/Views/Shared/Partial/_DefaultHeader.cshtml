@@ -1,0 +1,82 @@
+﻿
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    <div class="login-panel">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="page-content">
+                        <h2>Kullanıcı Girişi</h2>
+                        <div class="form-style form-style-3">
+                            <div class="form-inputs clearfix">
+                                @Html.Hidden("returnUrl", this.Request.RawUrl)
+                                <p class="login-text"><input id="Mail" name="Mail" placeholder="Email Adresi" required type="text"> <i class="fa fa-user"></i></p>
+                                <p class="login-password"><input id="Password" name="Password" placeholder="Parola" required type="password"> <i class="fa fa-lock"></i> <a href="index.htm#">Şifremi unuttum</a></p>
+                            </div>
+                            <p class="form-submit login-submit"><input class="button color small login-submit submit" type="submit" value="Giriş Yap"></p>  
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="page-content Register">
+                        <h2>Hemen üye ol</h2>
+                        <p>Sosyal Sözlük keyfini çıkarın.</p><a class="button color small signup">Üye Ol</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+}
+
+<div class="panel-pop" id="signup">
+    <h2>Hemen Kayıt Ol<i class="fa fa-times"></i></h2>
+    <div class="form-style form-style-3">
+        @using (Html.BeginForm("UserRegister", "User", FormMethod.Post))
+        { 
+            <div class="form-inputs clearfix">
+                @Html.Hidden("returnUrl", this.Request.RawUrl)
+                <p><label class="required">Kullanıcı Adı<span>*</span></label> <input name="Nickname" id="Nickname" type="text" required></p>
+                <p><label class="required">E-Mail<span>*</span></label> <input name="Mail" id="Mail" type="email" required></p>
+                <p><label class="required">Şifre<span>*</span></label> <input name="Password" id="Password" type="password" required></p>
+            </div>
+            <p class="form-submit"><input class="button color small submit" type="submit" value="Kayıt Ol"></p>
+        }
+        
+    </div>
+</div>
+<div class="panel-pop" id="lost-password">
+    <h2>Şifremi Unuttum<i class="fa fa-times"></i></h2>
+    <div class="form-style form-style-3">
+        <p>Şifreni mi unuttun? Lütfen kullanıcı adınızı ve e-posta adresinizi girin. Ardından E-postanıza şifre sıfırlama bağlantısı yollayacağız.</p>
+        <form>
+            <div class="form-inputs clearfix">
+                <p><label class="required">Kullanıcı Adı<span>*</span></label> <input type="text"></p>
+                <p><label class="required">E-Mail<span>*</span></label> <input type="email"></p>
+            </div>
+            <p class="form-submit"><input class="button color small submit" type="submit" value="Tamamla"></p>
+        </form>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div id="header-top">
+    <section class="container clearfix">
+        <nav class="header-top-nav">
+            <ul>
+                <li>
+                    <a href="@Url.Action("Contact", "Home")"><i class="fa fa-envelope"></i>İletişim</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Contact","Home")"><i class="fa fa-headphones"></i>Destek</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Login","User")" id="login-panel"><i class="fa fa-user"></i>Kullanıcı Girişi</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-search">
+            <form>
+                <input onblur="if(this.value=='')this.value='Site içi arama ...';" onfocus="if(this.value=='Site içi arama ...')this.value='';" type="text" value="Site içi arama ..."> <button class="search-submit" type="submit"></button>
+            </form>
+        </div>
+    </section>
+</div>

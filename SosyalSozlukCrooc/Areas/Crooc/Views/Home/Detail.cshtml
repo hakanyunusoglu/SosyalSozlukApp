@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Crooc/Views/Shared/_CroocMaster.cshtml";
+}
+
+@using SosyalSozlukCrooc.Models.DTO
+@{
+    DTOCrooc ContentOperations = new DTOCrooc();
+}
+
+
+@using SosyalSozlukCrooc.Models.Attributes.Enumerations;
+@model SosyalSozlukCrooc.Models.ViewModels.HomeView
+
+<div class="col-md-9">
+
+    @foreach (SosyalSozlukCrooc.Models.Entity.Crooc item in Model.Croocs_icerik)
+    {
+        <article class="question question-type-normal">
+            <h2><a href="@Url.Action("Detail", "Home", new { @id = item.ID })">@item.Title</a></h2><a class="question-report" href="index.htm#">Sikayet</a>
+            <div class="question-type-main">
+                <i class="fa fa-video-camera"></i>icerik
+            </div>
+            <div class="question-author">
+                <a class="question-author-img tooltip-n" href="index.htm#"><span></span><img alt="" src="@item.User.ProfilePicture"></a>
+            </div>
+            <div class="question-inner">
+                <div class="clearfix"></div>
+                <p class="question-desc">@item.Content</p>
+                <div class="question-details">
+                    <span class="question-favorite"><i class="fa fa-star"></i>@item.like</span>
+                </div>
+                <span class="question-category"><a href="index.htm#"><i class="fa fa-video-camera"></i>@CroocEnum.icerik</a></span>
+                <span class="question-date"><i class="fa fa-clock-o"></i>@item.AddDate</span>
+                <span class="question-comment"><a href="index.htm#"><i class="fa fa-comment"></i>@ContentOperations.GetCommentCount(item.ID) yorum</a></span>
+                <span class="question-view"><i class="fa fa-eye"></i>@item.view görüntüleme</span>
+                <div class="clearfix"></div>
+            </div>
+        </article>
+
+    }
+
+    <div class="share-tags page-content">
+        <div class="question-tags">
+            <i class="icon-tags"></i> <a href="index.htm#">wordpress</a>, <a href="index.htm#">question</a>, <a href="index.htm#">developer</a>
+        </div>
+        <div class="share-inside-warp">
+            <ul>
+
+                <li>
+                    <a href="index.htm#"><span class="icon_i"><span class="icon_square"><i class="social_icon-facebook"></i></span></span></a> <a href="index.htm#" target="_blank">Facebook</a>
+                </li>
+                <li>
+                    <a href="index.htm#" target="_blank"><span class="icon_i"><span class="icon_square"><i class="social_icon-twitter"></i></span></span></a> <a href="index.htm#" target="_blank">Twitter</a>
+                </li>
+                <li>
+                    <a href="index.htm#" target="_blank"><span class="icon_i"><span class="icon_square"><i class="social_icon-gplus"></i></span></span></a> <a href="index.htm#" target="_blank">Google plus</a>
+                </li>
+                <li>
+                    <a href="index.htm#" target="_blank"><span class="icon_i"><span class="icon_square"><i class="social_icon-dribbble"></i></span></span></a> <a href="index.htm#" target="_blank">Dribbble</a>
+                </li>
+                <li>
+                    <a href="index.htm#" target="_blank"><span class="icon_i"><span class="icon_square"><i class="icon-pinterest"></i></span></span></a> <a href="index.htm#" target="_blank">Pinterest</a>
+                </li>
+            </ul><span class="share-inside-f-arrow"></span> <span class="share-inside-l-arrow"></span>
+        </div>
+        <div class="share-inside">
+            <i class="icon-share-alt"></i>Paylaş
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="page-content" id="commentlist">
+        <div class="boxedtitle page-title">
+            <h2>Yorumlar ( <span class="color">5</span> )</h2>
+        </div>
+        <ol class="commentlist clearfix">
+            <li class="comment">
+                <div class="comment-body comment-body-answered clearfix">
+                    <div class="avatar"><img alt="" src="/Areas/Crooc/Content/images//admin.jpeg"></div>
+                    <div class="comment-text">
+                        <div class="author clearfix">
+                            <div class="comment-author">
+                                <a href="index.htm#">admin</a>
+                            </div>
+                            <div class="comment-vote">
+                                <ul class="question-vote">
+                                    <li>
+                                        <a class="question-vote-up" href="index.htm#" title="Like"></a>
+                                    </li>
+                                    <li>
+                                        <a class="question-vote-down" href="index.htm#" title="Dislike"></a>
+                                    </li>
+                                </ul>
+                            </div><span class="question-vote-result">+1</span>
+                            <div class="comment-meta">
+                                <div class="date">
+                                    <i class="icon-time"></i>14:24 02.03.2017
+                                </div>
+                            </div><a class="comment-reply" href="index.htm#"><i class="icon-reply"></i>Cevapla</a>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
+                        </div>
+                        <div class="question-answered question-answered-done">
+                            <i class="icon-ok"></i>En iyi yanıt
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="comment">
+                <div class="comment-body clearfix">
+                    <div class="avatar"><img alt="" src="/Areas/Crooc/Content/images//avatar.png"></div>
+                    <div class="comment-text">
+                        <div class="author clearfix">
+                            <div class="comment-author">
+                                <a href="index.htm#">2code</a>
+                            </div>
+                            <div class="comment-vote">
+                                <ul class="question-vote">
+                                    <li>
+                                        <a class="question-vote-up" href="index.htm#" title="Like"></a>
+                                    </li>
+                                    <li>
+                                        <a class="question-vote-down" href="index.htm#" title="Dislike"></a>
+                                    </li>
+                                </ul>
+                            </div><span class="question-vote-result">+1</span>
+                            <div class="comment-meta">
+                                <div class="date">
+                                    <i class="icon-time"></i>14:24 02.03.2017
+                                </div>
+                            </div><a class="comment-reply" href="index.htm#"><i class="icon-reply"></i>Cevapla</a>
+                        </div>
+                        <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="comment-respond page-content clearfix" id="respond">
+        <div class="boxedtitle page-title">
+            <h2>Cevapla</h2>
+        </div>
+        <form action="index.htm" class="comment-form" id="commentform" method="post" name="commentform">
+
+            <div id="respond-textarea">
+                <p>
+                    <label class="required" for="comment">Yorum<span>*</span></label>
+                    <textarea aria-required="true" cols="58" id="comment" name="comment" rows="8"></textarea>
+                </p>
+            </div>
+            <p class="form-submit"><input class="button small color" id="submit" name="submit" type="submit" value="Yanıtını Gönder"></p>
+        </form>
+    </div>
+
+</div>
+
+
+

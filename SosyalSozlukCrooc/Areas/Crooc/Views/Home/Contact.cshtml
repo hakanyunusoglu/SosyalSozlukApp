@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Areas/Crooc/Views/Shared/_CroocMaster.cshtml";
+}
+@model SosyalSozlukCrooc.Models.Entity.User
+<section class="container main-content col-md-9">
+    <div class="row">
+        <div class="contact-us">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-content">
+                        <iframe height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.5353198449634!2d28.795372315419055!3d40.99165497930248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa396db59606d%3A0x6594147beb14e9b4!2sIstanbul+Aydin+University!5e0!3m2!1str!2str!4v1490732170013"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("~/Areas/Crooc/Views/Shared/Partial/_ProcessMessages.cshtml")
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="page-content">
+                    <h2>Bizimle İletişime Geçin!</h2>
+                    <p>Aklınıza takılan herhangi bir soruyu bize sorun, aynı gün içerisinde cevaplayalım...</p>
+                    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-style form-style-3 form-style-5" }))
+                    {
+                        <div class="form-inputs clearfix">
+                            <p>
+                                <label for="name" class="required">İsim<span>*</span></label>
+                                @Html.TextBoxFor(x => x.Name, new { @class = "required-item", @required = "required" })
+                            </p>
+                            <p>
+                                <label for="name" class="required">Soyisim<span>*</span></label>
+                                @Html.TextBoxFor(x => x.Surname, new { @class = "required-item", @required = "required" })
+                            </p>
+                            <p>
+                                <label for="mail" class="required">E-Mail<span>*</span></label>
+                                @Html.TextBoxFor(x => x.Mail, new { @class = "required-item", @type = "email", @required = "required" })
+                            </p>
+                            <p>
+                                <label for="url" class="required">Telefon</label>
+                                <input type="text" id="Phone" name="Phone">
+                            </p>
+                        </div>
+                        <div class="form-textarea">
+                            <p>
+                                <label for="message" class="required">Mesaj<span>*</span></label>
+                                <textarea id="Message" class="required-item" name="Message" aria-required="true" cols="58" rows="7" required></textarea>
+                            </p>
+                        </div>
+                        <p class="form-submit">
+                            <input name="submit" type="submit" value="Gönder" class="submit button small color">
+                        </p>
+                    }
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="page-content">
+                    <h2>Crooc Nedir?</h2>
+                    <p>Yeni Medya Düzeni'ni yeni çağın sosyal ağ dinamiklerini göz önünde bulundurarak formülize eden Crooc'da kullanıcılar tüm internetin en popüler haber, fotoğraf, galeri ve videolarına tek bir noktadan ulaşıp eğlenceli testler çözerken aynı zamanda Crooc'un içeriğine de katkıda bulunabiliyor.</p>
+                    <p>Siz de Crooc'da profil oluşturup, en beğendiğiniz içerikleri Crooc'a ekleyebilirsiniz. Crooc'daki içerikleri favorilerinize ekleyip, yorumlayabilir, diğer kullanıcıları takip ederek onların eklediği içeriklere rahatlıkla ulaşabilirsiniz, sosyal medya hesaplarınızdan paylaşabilirsiniz.</p>
+                    <div class="widget widget_contact">
+                        <ul>
+                            <li>
+                                <i class="icon-share"></i>Sosyal Medya'da Crooc!
+                                <p>
+                                    <a href="#" original-title="Facebook" class="tooltip-n">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#3b5997" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(59, 89, 151); border-style: solid;">
+                                                <i i_color="#FFF" class="social_icon-facebook" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a href="#" original-title="Twitter" class="tooltip-n">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#00baf0" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(0, 186, 240); border-style: solid;">
+                                                <i i_color="#FFF" class="social_icon-twitter" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a original-title="Youtube" class="tooltip-n" href="#">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#cc291f" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(204, 41, 31); border-style: solid;">
+                                                <i i_color="#FFF" class="social_icon-youtube" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a href="#" original-title="Linkedin" class="tooltip-n">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#006599" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(0, 101, 153); border-style: solid;">
+                                                <i i_color="#FFF" class="social_icon-linkedin" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a href="#" original-title="Google plus" class="tooltip-n">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#ca2c24" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(202, 44, 36); border-style: solid;">
+                                                <i i_color="#FFF" class="social_icon-gplus" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a original-title="Instagram" class="tooltip-n" href="#">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#306096" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(48, 96, 150); border-style: solid;">
+                                                <i i_color="#FFF" class="social_icon-instagram" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a original-title="Pinterest" class="tooltip-n" href="#">
+                                        <span class="icon_i">
+                                            <span class="icon_square" icon_size="25" span_bg="#c7151a" span_hover="#2f3239" style="height: 25px; width: 25px; font-size: 12.5px; line-height: 25px; background-color: rgb(199, 21, 26); border-style: solid;">
+                                                <i i_color="#FFF" class="fa fa-pinterest" style="color: rgb(255, 255, 255);"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

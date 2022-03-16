@@ -1,0 +1,71 @@
+﻿@using SosyalSozlukCrooc.Areas.Crooc.Models.Attributes
+@{
+    GetUserInformations user = new GetUserInformations();
+}
+<div class="background-cover"></div>
+<div class="login-panel panel_dark" style="display: block;">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="is-login-left user-profile-img">
+                                <a original-title="@HttpContext.Current.Request.Cookies["User"].Value" class="tooltip-n" href="#"><img alt="" src="@user.GetUserProfilePhoto()" class="avatar avatar-65 photo" height="65" width="65"></a>
+                            </div>
+                            <div class="is-login-right">
+                                <h2>Hoşgeldiniz, @HttpContext.Current.Request.Cookies["User"].Value <span class="badge-span" style="background-color:#15a03a">Aktif</span></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Hesabım</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="user_quick_links">
+                                        <li><a href="#"><i class="fa fa-envelope"></i> Mesajlar</a></li>
+                                        <li><a href="#"><i class="fa fa-bell"></i> Bildirimler</a></li>
+                                        <li><a href="#"><i class="fa fa-star"></i> Favoriler</a></li>
+                                        <li><a href="#"><i class="fa fa-arrow-right"></i> Takip Ettiklerim</a></li>
+                                        <li><a href="#"><i class="fa fa-users"></i> Takipçilerim</a></li>
+                                    </ul>
+                                </div><div class="col-md-6">
+                                    <ul class="user_quick_links">
+                                        <li><a href="@Url.Action("EditProfile","User")"><i class="fa fa-user"></i> Profil Bilgileri</a></li>
+                                        <li><a href="#"><i class="fa fa-key"></i> Şifre Değiştir</a></li>
+                                        <li><a href="@Url.Action("SignOut", "User")"><i class="fa fa-sign-out"></i> Çıkış Yap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div id="header-top">
+    <section class="container clearfix">
+        <nav class="header-top-nav">
+            <ul>
+                <li>
+                    <a href="@Url.Action("Contact","Home")"><i class="fa fa-envelope"></i>İletişim</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Contact","Home")"><i class="fa fa-headphones"></i>Destek</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("","")"><i class="fa fa-pencil"></i>Crooc'la</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Login","User")" id="login-panel"><i class="fa fa-user"></i>Hesap Bilgileri</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-search">
+            <form>
+                <input onblur="if(this.value=='')this.value='Site içi arama ...';" onfocus="if(this.value=='Site içi arama ...')this.value='';" type="text" value="Site içi arama ..."> <button class="search-submit" type="submit"></button>
+            </form>
+        </div>
+    </section>
+</div>

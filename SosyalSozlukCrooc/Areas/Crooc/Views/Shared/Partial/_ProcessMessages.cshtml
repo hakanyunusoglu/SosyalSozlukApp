@@ -1,0 +1,22 @@
+﻿@if ((string)ViewData["Process"] == "Show")
+            {
+    <div class="alert-message @ViewData["AlertType"]">
+        <i class="@ViewData["ProcessIcon"]"></i>
+        <p>
+            <span>@ViewData["ProcessTitle"]</span><br>
+            @ViewData["ProcessMessage"]
+        </p>
+    </div>
+}
+
+@if ((string)ViewData["ProcessType"] == "ImageFail")
+{
+    <div class="alert-message info">
+        <i class="fa fa-info"></i>
+        <p>
+            <span>Dikkat!</span><br>
+            Girdiğiniz diğer profil bilgilerini güncelleştirdik. Fakat profil fotoğrafınızın uzantısı .jpg veya .png olmadığından ötürü resim güncelleme işlemini iptal ettik.
+        </p>
+    </div>
+}
+        
